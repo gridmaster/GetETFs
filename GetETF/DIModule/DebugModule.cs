@@ -1,8 +1,8 @@
 ﻿using Logger;
 using Core.Interface;
 using Ninject.Modules;
-//using Services.Interface;
-//using Services.Service;
+using Services.Interfaces;
+using Services.Services;
 
 namespace GetETF.DIModule
 {
@@ -13,7 +13,7 @@ namespace GetETF.DIModule
             Bind<ILogger>().To<Log4NetLogger>().InSingletonScope()
                 .WithConstructorArgument("loglevel", LogLevelEnum.Debug);
 
-            //Bind<IMyFakeService>().To<MyFakeService>().InSingletonScope();
+            Bind<IETFService>().To<ETFService>().InSingletonScope();
             //Bind<IMyOtherService>().To<MyOtherService>().InSingletonScope();
         }
     }

@@ -1,0 +1,7 @@
+D:\Projects\GetETF\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+D:\Projects\GetETF\Services\bin\Debug\Services.dll
+D:\Projects\GetETF\Services\bin\Debug\Services.pdb
+D:\Projects\GetETF\Services\bin\Debug\Core.dll
+D:\Projects\GetETF\Services\bin\Debug\Core.pdb
+D:\Projects\GetETF\Services\obj\Debug\Services.dll
+D:\Projects\GetETF\Services\obj\Debug\Services.pdb

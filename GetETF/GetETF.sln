@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIContainer", "..\DIContain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "..\Logger\Logger.csproj", "{FA5BB2EF-8849-4417-A154-E8A2C956F524}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "..\Services\Services.csproj", "{D9F0583B-EFFF-4BBE-8EE1-B354136E58CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{FA5BB2EF-8849-4417-A154-E8A2C956F524}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA5BB2EF-8849-4417-A154-E8A2C956F524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA5BB2EF-8849-4417-A154-E8A2C956F524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F0583B-EFFF-4BBE-8EE1-B354136E58CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F0583B-EFFF-4BBE-8EE1-B354136E58CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F0583B-EFFF-4BBE-8EE1-B354136E58CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F0583B-EFFF-4BBE-8EE1-B354136E58CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

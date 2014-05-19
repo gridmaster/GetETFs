@@ -8,6 +8,7 @@ using DIContainer;
 using GetETF.DIModule;
 using Logger;
 using Ninject;
+using Services.Interfaces;
 
 namespace GetETF
 {
@@ -33,12 +34,11 @@ namespace GetETF
             try
             {
                 InitializeDiContainer();
-                // DIContainer.IOCContainer.Instance.Get<ILogger>().
+
                 DIContainer.IOCContainer.Instance.Get<ILogger>()
                     .InfoFormat("{0}********************************************************************************{0}", Environment.NewLine);
                 DIContainer.IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Main's runnin'...{0}", Environment.NewLine);
-                //DIContainer.IOCContainer.Instance.Get<IMyFakeService>().DoSomething(123);
-                //DIContainer.IOCContainer.Instance.Get<IMyOtherService>().DoSomethingElse(456);
+                DIContainer.IOCContainer.Instance.Get<IETFService>().DoSomething(123);
             }
             catch (Exception exc)
             {
