@@ -1,0 +1,17 @@
+D:\Projects\Log4NetWithDINinject\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\Logger.dll
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\Logger.pdb
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\Core.dll
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\log4net.dll
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\Core.pdb
+D:\Projects\Log4NetWithDINinject\Logger\bin\Debug\log4net.xml
+D:\Projects\Log4NetWithDINinject\Logger\obj\Debug\Logger.dll
+D:\Projects\Log4NetWithDINinject\Logger\obj\Debug\Logger.pdb
+D:\Projects\GetETF\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+D:\Projects\GetETF\Logger\obj\Debug\Logger.dll
+D:\Projects\GetETF\Logger\obj\Debug\Logger.pdb
+D:\Projects\GetETF\Logger\bin\Debug\Logger.dll
+D:\Projects\GetETF\Logger\bin\Debug\Logger.pdb
+D:\Projects\GetETF\Logger\bin\Debug\Core.dll
+D:\Projects\GetETF\Logger\bin\Debug\Core.pdb
+D:\Projects\GetETF\Logger\bin\Debug\log4net.xml

@@ -1,0 +1,16 @@
+D:\Projects\GetETF\GetETF\bin\Debug\GetETF.exe.config
+D:\Projects\GetETF\GetETF\obj\Debug\GetETF.csprojResolveAssemblyReference.cache
+D:\Projects\GetETF\GetETF\bin\Debug\GetETF.exe
+D:\Projects\GetETF\GetETF\bin\Debug\GetETF.pdb
+D:\Projects\GetETF\GetETF\bin\Debug\Core.dll
+D:\Projects\GetETF\GetETF\bin\Debug\DIContainer.dll
+D:\Projects\GetETF\GetETF\bin\Debug\Logger.dll
+D:\Projects\GetETF\GetETF\bin\Debug\Ninject.dll
+D:\Projects\GetETF\GetETF\bin\Debug\log4net.dll
+D:\Projects\GetETF\GetETF\bin\Debug\Core.pdb
+D:\Projects\GetETF\GetETF\bin\Debug\DIContainer.pdb
+D:\Projects\GetETF\GetETF\bin\Debug\Logger.pdb
+D:\Projects\GetETF\GetETF\bin\Debug\Ninject.xml
+D:\Projects\GetETF\GetETF\bin\Debug\log4net.xml
+D:\Projects\GetETF\GetETF\obj\Debug\GetETF.exe
+D:\Projects\GetETF\GetETF\obj\Debug\GetETF.pdb

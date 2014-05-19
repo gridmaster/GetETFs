@@ -1,0 +1,31 @@
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\bin\Debug\DIContainer.dll
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\bin\Debug\DIContainer.pdb
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\bin\Debug\Ninject.dll
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\bin\Debug\Ninject.pdb
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\bin\Debug\Ninject.xml
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\obj\Debug\DIContainer.dll
+D:\Projects\Ninject Projects\IOCLog4NetNinject\DIContainer\obj\Debug\DIContainer.pdb
+D:\Projects\LogWriter4\DIContainer\bin\Debug\DIContainer.dll
+D:\Projects\LogWriter4\DIContainer\bin\Debug\DIContainer.pdb
+D:\Projects\LogWriter4\DIContainer\bin\Debug\Ninject.dll
+D:\Projects\LogWriter4\DIContainer\bin\Debug\Ninject.pdb
+D:\Projects\LogWriter4\DIContainer\bin\Debug\Ninject.xml
+D:\Projects\LogWriter4\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
+D:\Projects\LogWriter4\DIContainer\obj\Debug\DIContainer.dll
+D:\Projects\LogWriter4\DIContainer\obj\Debug\DIContainer.pdb
+D:\Projects\Log4NetWithDINinject\DIContainer\bin\Debug\DIContainer.dll
+D:\Projects\Log4NetWithDINinject\DIContainer\bin\Debug\DIContainer.pdb
+D:\Projects\Log4NetWithDINinject\DIContainer\bin\Debug\Ninject.dll
+D:\Projects\Log4NetWithDINinject\DIContainer\bin\Debug\Ninject.pdb
+D:\Projects\Log4NetWithDINinject\DIContainer\bin\Debug\Ninject.xml
+D:\Projects\Log4NetWithDINinject\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
+D:\Projects\Log4NetWithDINinject\DIContainer\obj\Debug\DIContainer.dll
+D:\Projects\Log4NetWithDINinject\DIContainer\obj\Debug\DIContainer.pdb
+D:\Projects\GetETF\DIContainer\bin\Debug\DIContainer.dll
+D:\Projects\GetETF\DIContainer\bin\Debug\DIContainer.pdb
+D:\Projects\GetETF\DIContainer\bin\Debug\Ninject.dll
+D:\Projects\GetETF\DIContainer\bin\Debug\Ninject.xml
+D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
+D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.dll
+D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.pdb
