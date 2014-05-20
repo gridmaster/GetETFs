@@ -9,5 +9,6 @@ namespace Services.Interfaces
     public interface IETFService
     {
         void DoSomething(int id);
+        string GetETFs(string uri);
     }
 }

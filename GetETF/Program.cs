@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,12 @@ namespace GetETF
                 DIContainer.IOCContainer.Instance.Get<ILogger>()
                     .InfoFormat("{0}********************************************************************************{0}", Environment.NewLine);
                 DIContainer.IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Main's runnin'...{0}", Environment.NewLine);
-                DIContainer.IOCContainer.Instance.Get<IETFService>().DoSomething(123);
+                string result = DIContainer.IOCContainer.Instance.Get<IETFService>().GetETFs("http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab1&scol=imkt&stype=desc&rcnt=50&page=1");
+                using(StreamWriter sw = new StreamWriter("out.html"))
+                {
+                    sw.WriteLine(result);
+                }
+                Console.Write(result);
             }
             catch (Exception exc)
             {
