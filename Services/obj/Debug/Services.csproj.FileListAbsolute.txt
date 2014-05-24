@@ -5,3 +5,16 @@ D:\Projects\GetETF\Services\bin\Debug\Core.dll
 D:\Projects\GetETF\Services\bin\Debug\Core.pdb
 D:\Projects\GetETF\Services\obj\Debug\Services.dll
 D:\Projects\GetETF\Services\obj\Debug\Services.pdb
+C:\Projects\GetETFs\Services\bin\Debug\Services.dll
+C:\Projects\GetETFs\Services\bin\Debug\Services.pdb
+C:\Projects\GetETFs\Services\bin\Debug\Core.dll
+C:\Projects\GetETFs\Services\bin\Debug\Core.pdb
+C:\Projects\GetETFs\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+C:\Projects\GetETFs\Services\obj\Debug\Services.dll
+C:\Projects\GetETFs\Services\obj\Debug\Services.pdb
+C:\Projects\GetETFs\Services\bin\Debug\DIContainer.dll
+C:\Projects\GetETFs\Services\bin\Debug\Logger.dll
+C:\Projects\GetETFs\Services\bin\Debug\Ninject.dll
+C:\Projects\GetETFs\Services\bin\Debug\DIContainer.pdb
+C:\Projects\GetETFs\Services\bin\Debug\Logger.pdb
+C:\Projects\GetETFs\Services\bin\Debug\Ninject.xml

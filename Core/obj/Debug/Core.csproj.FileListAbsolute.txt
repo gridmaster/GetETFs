@@ -13,3 +13,8 @@ D:\Projects\GetETF\Core\bin\Debug\Core.pdb
 D:\Projects\GetETF\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
 D:\Projects\GetETF\Core\obj\Debug\Core.dll
 D:\Projects\GetETF\Core\obj\Debug\Core.pdb
+C:\Projects\GetETFs\Core\bin\Debug\Core.dll
+C:\Projects\GetETFs\Core\bin\Debug\Core.pdb
+C:\Projects\GetETFs\Core\obj\Debug\Core.dll
+C:\Projects\GetETFs\Core\obj\Debug\Core.pdb
+C:\Projects\GetETFs\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

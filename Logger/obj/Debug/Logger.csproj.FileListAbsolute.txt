@@ -15,3 +15,10 @@ D:\Projects\GetETF\Logger\bin\Debug\Logger.pdb
 D:\Projects\GetETF\Logger\bin\Debug\Core.dll
 D:\Projects\GetETF\Logger\bin\Debug\Core.pdb
 D:\Projects\GetETF\Logger\bin\Debug\log4net.xml
+C:\Projects\GetETFs\Logger\bin\Debug\Logger.dll
+C:\Projects\GetETFs\Logger\bin\Debug\Logger.pdb
+C:\Projects\GetETFs\Logger\bin\Debug\Core.dll
+C:\Projects\GetETFs\Logger\bin\Debug\Core.pdb
+C:\Projects\GetETFs\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+C:\Projects\GetETFs\Logger\obj\Debug\Logger.dll
+C:\Projects\GetETFs\Logger\obj\Debug\Logger.pdb

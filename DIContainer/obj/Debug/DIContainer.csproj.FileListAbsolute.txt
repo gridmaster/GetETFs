@@ -29,3 +29,10 @@ D:\Projects\GetETF\DIContainer\bin\Debug\Ninject.xml
 D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
 D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.dll
 D:\Projects\GetETF\DIContainer\obj\Debug\DIContainer.pdb
+C:\Projects\GetETFs\DIContainer\bin\Debug\DIContainer.dll
+C:\Projects\GetETFs\DIContainer\bin\Debug\DIContainer.pdb
+C:\Projects\GetETFs\DIContainer\bin\Debug\Ninject.dll
+C:\Projects\GetETFs\DIContainer\bin\Debug\Ninject.xml
+C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
+C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.dll
+C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.pdb
