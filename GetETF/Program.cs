@@ -41,7 +41,11 @@ namespace GetETF
 
                 string result = string.Empty;
 
+                var sup = IOCContainer.Instance.Get<IETFService>().GetReturnNav();
+
                 var FullMonty = IOCContainer.Instance.Get<IETFService>().GetReturnMkt();
+
+                //FullMonty[0].ETFName
 
                 Console.Write(result);
             }
