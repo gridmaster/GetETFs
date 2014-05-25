@@ -27,7 +27,7 @@ namespace GetETF
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("{0}Program startup...", DateTime.Now);
+            Console.WriteLine("{0}: Program startup...", DateTime.Now);
             string uri =
                 "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab{0}&scol=imkt&stype=desc&rcnt={1}&page={2}";
             try
@@ -35,9 +35,7 @@ namespace GetETF
                 InitializeDiContainer();
 
                 IOCContainer.Instance.Get<ILogger>()
-                            .InfoFormat(
-                                "{0}********************************************************************************{0}",
-                                Environment.NewLine);
+                            .InfoFormat("{0}********************************************************************************{0}", Environment.NewLine);
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Main's runnin'...{0}", Environment.NewLine);
 
                 string result = string.Empty;
@@ -52,9 +50,9 @@ namespace GetETF
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Data collecting complete...{0}", Environment.NewLine);
 
             }
-            catch (Exception exc)
+            catch (Exception ex)
             {
-                IOCContainer.Instance.Get<ILogger>().Fatal("Sucker blew up: {0}", exc);
+                IOCContainer.Instance.Get<ILogger>().Fatal("Sucker blew up: {0}", ex);
             }
             finally
             {

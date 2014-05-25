@@ -1,48 +1,27 @@
-2014-05-25 12:45:43,998 [8] INFO   
-GetETFs's completed. 1156 items returned. 
+2014-05-25 13:42:04,967 [9] INFO   
+GetETFs is fetching this uri: http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt=100&page=8
 
-2014-05-25 12:45:44,010 [8] INFO   
-GetTradingVolume's runnin...
+2014-05-25 13:42:06,227 [9] INFO   
+GetETFs is fetching this uri: http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt=100&page=9
 
-2014-05-25 12:45:44,012 [8] INFO   
-GetETFs's runnin'...
+2014-05-25 13:42:07,398 [9] INFO   
+GetETFs is fetching this uri: http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt=100&page=10
 
-2014-05-25 12:45:56,348 [8] INFO   
-GetETFs's completed. 1156 items returned. 
+2014-05-25 13:42:08,730 [9] INFO   
+GetETFs is fetching this uri: http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt=100&page=11
 
-2014-05-25 12:45:56,350 [8] INFO   
-GetHoldings's runnin...
+2014-05-25 13:42:09,811 [9] INFO   
+GetETFs is fetching this uri: http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt=100&page=12
 
-2014-05-25 12:45:56,351 [8] INFO   
-GetETFs's runnin'...
+2014-05-25 13:42:10,669 [9] INFO   
+GetEtfList has completed. 1156 Items returned. 
 
-2014-05-25 12:46:28,774 [8] INFO   
-GetETFs's completed. 1156 items returned. 
-
-2014-05-25 12:46:28,776 [8] INFO   
-GetRisk's runnin...
-
-2014-05-25 12:46:28,777 [8] INFO   
-GetETFs's runnin'...
-
-2014-05-25 12:46:40,171 [8] INFO   
-GetETFs's completed. 1156 items returned. 
-
-2014-05-25 12:46:40,174 [8] INFO   
-GetOperations's runnin...
-
-2014-05-25 12:46:40,175 [8] INFO   
-GetETFs's runnin'...
-
-2014-05-25 12:46:52,090 [8] INFO   
-GetETFs's completed. 1156 items returned. 
-
-2014-05-25 12:46:52,093 [8] INFO   
+2014-05-25 13:42:10,671 [9] INFO   
 Data collecting complete...
 
-2014-05-25 12:47:03,986 [8] INFO   
+2014-05-25 13:42:10,673 [9] INFO   
 Main's done'...
 
-2014-05-25 12:47:03,989 [8] INFO   
+2014-05-25 13:42:10,674 [9] INFO   
 ********************************************************************************
 

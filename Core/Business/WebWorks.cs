@@ -111,5 +111,17 @@ namespace Core.Business
 
             return strTable;
         }
+
+        public static string[] ExtractRows(string strTable)
+        {
+            strTable = strTable.Replace("<tr>", "~");
+            return strTable.Split('~');
+        }
+
+        public static string[] ExtractRowsFromWebPage(string page)
+        {
+            string xstrTable = GetTable(page);
+            return ExtractRows(xstrTable);
+        }
     }
 }

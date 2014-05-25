@@ -23,91 +23,78 @@ namespace Services.Services
         public List<EtfReturn> GetReturnMkt()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnMkt's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab1&scol=imkt&stype=desc&rcnt={0}&page={1}";
-            List<EtfReturn> etfList = CallGetEtfAndCheckCounts<EtfReturn>(uri);
-            
-            return etfList;
+
+            return GetEtfAndCheckCounts<EtfReturn>(EtfUris.uriReturn);
         }
 
         public List<EtfReturnNav> GetReturnNav()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnNav's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab2&scol=nav3m&stype=desc&rcnt={0}&page={1}";
-            List<EtfReturnNav> etfList = CallGetEtfAndCheckCounts<EtfReturnNav>(uri);
-            
-            return etfList;
+
+            return GetEtfAndCheckCounts<EtfReturnNav>(EtfUris.uriReturnNav);
         }
 
         public List<EtfTradingVolume> GetTradingVolume()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetTradingVolume's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab3&scol=volint&stype=desc&rcnt={0}&page={1}";
-            List<EtfTradingVolume> etfList = CallGetEtfAndCheckCounts<EtfTradingVolume>(uri);
 
-            return etfList;
+            return GetEtfAndCheckCounts<EtfTradingVolume>(EtfUris.uriTradingVolume);
         }
 
         public List<EtfHoldings> GetHoldings()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetHoldings's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab4&scol=avgcap&stype=desc&rcnt={0}&page={1}";
-            List<EtfHoldings> etfList = CallGetEtfAndCheckCounts<EtfHoldings>(uri);
 
-            return etfList;
+            return GetEtfAndCheckCounts<EtfHoldings>(EtfUris.uriHoldings);
         }
 
         public List<EtfRisk> GetRisk()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetRisk's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab5&scol=riskb&stype=desc&rcnt={0}&page={1}";
-            List<EtfRisk> etfList = CallGetEtfAndCheckCounts<EtfRisk>(uri);
 
-            return etfList;
+            return GetEtfAndCheckCounts<EtfRisk>(EtfUris.uriRisk);
         }
 
         public List<EtfOperations> GetOperations()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetOperations's runnin...{0}", Environment.NewLine);
-            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt={0}&page={1}";
-            List<EtfOperations> etfList = CallGetEtfAndCheckCounts<EtfOperations>(uri);
 
-            return etfList;
+            return GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
         }
         #endregion IEtfService Implementation
 
         #region Private Methods
-        private List<T> CallGetEtfAndCheckCounts<T>(string uri) where T : EtfBase, new()
+        private List<T> GetEtfAndCheckCounts<T>(string uri) where T : EtfBase, new()
         {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfAndCheckCounts is runnin'...{0}", Environment.NewLine);
+
             List<T> etfList = new List<T>();
+
             do
             {
-                etfList = GetETFList<T>(uri);
+                etfList = GetEtfList<T>(uri);
             } while (etfList.Count < 1101);
+
             return etfList;
         }
 
-        private List<T> GetETFList<T>(string uri) where T : EtfBase, new()
+        private List<T> GetEtfList<T>(string uri) where T : EtfBase, new()
         {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfList is runnin'...{0}", Environment.NewLine);
+
             List<T> etfList = new List<T>();
             
             try
             {
-                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs's runnin'...{0}", Environment.NewLine);
-
                 int page = 1;
                 bool notDone = true;
-                string result = string.Empty;
 
                 do
                 {
-                    string url = string.Format(uri, 100, page++);
-                    result = GetETFs(url);
+                    string result = GetETFs(string.Format(uri, 100, page++));
 
-                    string xstrTable = WebWorks.GetTable(result);
-
-                    xstrTable = xstrTable.Replace("<tr>", "~");
-                    string[] rows = xstrTable.Split('~');
-                    if (rows.Count() < 100) notDone = false;
+                    string[] rows = WebWorks.ExtractRowsFromWebPage(result);
+                    notDone = rows.Count() > 99;
 
                     foreach (var row in rows)
                     {
@@ -123,15 +110,11 @@ namespace Services.Services
             }
             catch (Exception ex)
             {
-                logger.ErrorFormat("Unable to get {1}{0}Error: {2}{0}{3}"
-                        , Environment.NewLine
-                        , uri
-                        , ex.Message
-                        , GetThisMethodName()); 
+                logger.ErrorFormat("Unable to get {1}{0}Error: {2}{0}{3}", Environment.NewLine, uri, ex.Message, GetThisMethodName()); 
             }
             finally
             {
-                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs's completed. {1} items returned. {0}", Environment.NewLine, etfList.Count);
+                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfList has completed. {1} Items returned. {0}", Environment.NewLine, etfList.Count);
             }
 
             return etfList;
@@ -139,6 +122,8 @@ namespace Services.Services
 
         private string GetETFs(string uri)
         {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs is fetching uri: {0}{1}{0}", Environment.NewLine, uri);
+
             string webData = string.Empty;
 
             try

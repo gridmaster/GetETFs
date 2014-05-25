@@ -10,7 +10,6 @@ using Ninject.Modules;
 
 namespace DIContainer
 {
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
