@@ -27,6 +27,7 @@ namespace GetETF
 
         private static void Main(string[] args)
         {
+            Console.WriteLine("{0}Program startup...", DateTime.Now);
             string uri =
                 "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab{0}&scol=imkt&stype=desc&rcnt={1}&page={2}";
             try
@@ -41,14 +42,15 @@ namespace GetETF
 
                 string result = string.Empty;
 
-                var FullMonty = IOCContainer.Instance.Get<IETFService>().GetReturnMkt();
+                var returnMkt = IOCContainer.Instance.Get<IEtfService>().GetReturnMkt();
+                var returnNav = IOCContainer.Instance.Get<IEtfService>().GetReturnNav();
+                var returnTv = IOCContainer.Instance.Get<IEtfService>().GetTradingVolume();
+                var returnHoldings = IOCContainer.Instance.Get<IEtfService>().GetHoldings();
+                var returnRisk = IOCContainer.Instance.Get<IEtfService>().GetRisk();
+                var returnOperations = IOCContainer.Instance.Get<IEtfService>().GetOperations();
 
-                var sup = IOCContainer.Instance.Get<IETFService>().GetReturnNav();
+                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Data collecting complete...{0}", Environment.NewLine);
 
-
-                //FullMonty[0].ETFName
-
-                Console.Write(result);
             }
             catch (Exception exc)
             {

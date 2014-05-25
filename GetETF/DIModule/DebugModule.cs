@@ -13,7 +13,7 @@ namespace GetETF.DIModule
             Bind<ILogger>().To<Log4NetLogger>().InSingletonScope()
                 .WithConstructorArgument("loglevel", LogLevelEnum.Debug);
 
-            Bind<IETFService>().To<ETFService>().InSingletonScope();
+            Bind<IEtfService>().To<EtfService>().InSingletonScope();
             //Bind<IMyOtherService>().To<MyOtherService>().InSingletonScope();
         }
     }

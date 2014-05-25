@@ -3,15 +3,13 @@ using Core.Models;
 
 namespace Services.Interfaces
 {
-    public interface IETFService
+    public interface IEtfService
     {
-        void DoSomething(int id);
-        List<ETFReturn> GetReturnMkt();
-        List<ETFReturnNAV> GetReturnNav();
-        //List<ETFReturn> GetTradingVolumn();
-        //List<ETFReturn> GetHoldings();
-        //List<ETFReturn> GetRisk();
-        //List<ETFReturn> GetTradingOperations();
-        string GetETFs(string uri);
+        List<EtfReturn> GetReturnMkt();
+        List<EtfReturnNav> GetReturnNav();
+        List<EtfTradingVolume> GetTradingVolume();
+        List<EtfHoldings> GetHoldings();
+        List<EtfRisk> GetRisk();
+        List<EtfOperations> GetOperations();
     }
 }

@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 
 namespace Core.Models
 {
-    public class ETFTradingVolume : BaseETF
+    public class EtfTradingVolume : EtfBase
     {
         //VOLUME (INTRADAY)
         public string IntradayVolume { get; set; }
@@ -25,7 +24,7 @@ namespace Core.Models
             if (rows.Length < 10)
                 throw new ArgumentException("requires 10 rows to be passed.");
 
-            ETFName = rows[1];
+            EtfName = rows[1];
             Ticker = rows[2];
             Category = rows[3];
             FundFamily = rows[4];

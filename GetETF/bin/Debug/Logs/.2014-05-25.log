@@ -1,15 +1,48 @@
-2014-05-25 11:26:29,824 [9] INFO   
-********************************************************************************
+2014-05-25 12:45:43,998 [8] INFO   
+GetETFs's completed. 1156 items returned. 
 
-2014-05-25 11:26:29,857 [9] INFO   
-Main's runnin'...
+2014-05-25 12:45:44,010 [8] INFO   
+GetTradingVolume's runnin...
 
-2014-05-25 11:26:40,766 [9] INFO   
-GetReturnMkt's runnin...
-
-2014-05-25 11:26:49,549 [9] INFO   
+2014-05-25 12:45:44,012 [8] INFO   
 GetETFs's runnin'...
 
-2014-05-25 11:27:42,290 [9] INFO   
-GetETFs's completed...
+2014-05-25 12:45:56,348 [8] INFO   
+GetETFs's completed. 1156 items returned. 
+
+2014-05-25 12:45:56,350 [8] INFO   
+GetHoldings's runnin...
+
+2014-05-25 12:45:56,351 [8] INFO   
+GetETFs's runnin'...
+
+2014-05-25 12:46:28,774 [8] INFO   
+GetETFs's completed. 1156 items returned. 
+
+2014-05-25 12:46:28,776 [8] INFO   
+GetRisk's runnin...
+
+2014-05-25 12:46:28,777 [8] INFO   
+GetETFs's runnin'...
+
+2014-05-25 12:46:40,171 [8] INFO   
+GetETFs's completed. 1156 items returned. 
+
+2014-05-25 12:46:40,174 [8] INFO   
+GetOperations's runnin...
+
+2014-05-25 12:46:40,175 [8] INFO   
+GetETFs's runnin'...
+
+2014-05-25 12:46:52,090 [8] INFO   
+GetETFs's completed. 1156 items returned. 
+
+2014-05-25 12:46:52,093 [8] INFO   
+Data collecting complete...
+
+2014-05-25 12:47:03,986 [8] INFO   
+Main's done'...
+
+2014-05-25 12:47:03,989 [8] INFO   
+********************************************************************************
 

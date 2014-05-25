@@ -5,98 +5,88 @@ using Core.Business;
 using Core.Interface;
 using Core.Models;
 using DIContainer;
-using Ninject;
-using Services.DIModule;
 using Services.Interfaces;
 
 namespace Services.Services
 {
-    public class ETFService : BaseService, IETFService
+    public class EtfService : BaseService, IEtfService
     {
-        #region initialize DI container
-
-        private static void InitializeDiContainer()
-        {
-            NinjectSettings settings = new NinjectSettings
-            {
-                LoadExtensions = false
-            };
-
-            // change DesignTimeModule to run other implementation ProductionModule || DebugModule
-            IOCContainer.Instance.Initialize(settings, new DebugModule());
-        }
-        #endregion Initialize DI Container
-
-        public ETFService(ILogger logger) : base(logger)
+        #region Constructors
+        public EtfService(ILogger logger) : base(logger)
         {
             ThrowIfIsInitialized();
             IsInitialized = true;
-            //InitializeDiContainer();
         }
+        #endregion Constructors
 
-        public void DoSomething(int id)
-        {
-            ThrowIfNotInitialized();
-
-            logger.DebugFormat("{0}write something here: {1}", Environment.NewLine, "I did something...");
-
-            logger.ErrorFormat("Unable to process {4}{0}surveyId: {1}{0}token: {2}{0}{3}"
-                                    , Environment.NewLine
-                                    , 1
-                                    , id
-                                    , "Other Message!"
-                                    , GetThisMethodName());
-        }
-
-        public List<ETFReturn> GetReturnMkt()
+        #region IEtfService Implementation
+        public List<EtfReturn> GetReturnMkt()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnMkt's runnin...{0}", Environment.NewLine);
             const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab1&scol=imkt&stype=desc&rcnt={0}&page={1}";
-            List<ETFReturn> etfList = GetETFList<ETFReturn>(uri);
-
+            List<EtfReturn> etfList = CallGetEtfAndCheckCounts<EtfReturn>(uri);
+            
             return etfList;
         }
 
-        public List<ETFReturnNAV> GetReturnNav()
+        public List<EtfReturnNav> GetReturnNav()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnNav's runnin...{0}", Environment.NewLine);
             const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab2&scol=nav3m&stype=desc&rcnt={0}&page={1}";
-            List<ETFReturnNAV> etfList = GetETFList<ETFReturnNAV>(uri);
-
+            List<EtfReturnNav> etfList = CallGetEtfAndCheckCounts<EtfReturnNav>(uri);
+            
             return etfList;
         }
 
-        public List<ETFReturn> GetTradingVolumn()
+        public List<EtfTradingVolume> GetTradingVolume()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetTradingVolumn's runnin...{0}", Environment.NewLine);
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetTradingVolume's runnin...{0}", Environment.NewLine);
             const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab3&scol=volint&stype=desc&rcnt={0}&page={1}";
-            List<ETFReturnNAV> etfList = GetETFList<ETFTradingVolume>(uri);
+            List<EtfTradingVolume> etfList = CallGetEtfAndCheckCounts<EtfTradingVolume>(uri);
 
             return etfList;
         }
 
-        //public List<ETFReturn> GetHoldings()
-        //{
-        //    IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetHoldings's runnin...{0}", Environment.NewLine);
-        //    const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab4&scol=avgcap&stype=desc&rcnt={0}&page={1}";
-        //    return GetETFList(uri);
-        //}
+        public List<EtfHoldings> GetHoldings()
+        {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetHoldings's runnin...{0}", Environment.NewLine);
+            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab4&scol=avgcap&stype=desc&rcnt={0}&page={1}";
+            List<EtfHoldings> etfList = CallGetEtfAndCheckCounts<EtfHoldings>(uri);
 
-        //public List<ETFReturn> GetRisk()
-        //{
-        //    IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetRisk's runnin...{0}", Environment.NewLine);
-        //    const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab5&scol=riskb&stype=desc&rcnt={0}&page={1}";
-        //    return GetETFList(uri);
-        //}
+            return etfList;
+        }
 
-        //public List<ETFReturn> GetTradingOperations()
-        //{
-        //    IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetTradingOperations's runnin...{0}", Environment.NewLine);
-        //    const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt={0}&page={1}";
-        //    return GetETFList(uri);
-        //}
+        public List<EtfRisk> GetRisk()
+        {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetRisk's runnin...{0}", Environment.NewLine);
+            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab5&scol=riskb&stype=desc&rcnt={0}&page={1}";
+            List<EtfRisk> etfList = CallGetEtfAndCheckCounts<EtfRisk>(uri);
 
-        private List<T> GetETFList<T>(string uri) where T : BaseETF, new()
+            return etfList;
+        }
+
+        public List<EtfOperations> GetOperations()
+        {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetOperations's runnin...{0}", Environment.NewLine);
+            const string uri = "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab6&scol=nasset&stype=desc&rcnt={0}&page={1}";
+            List<EtfOperations> etfList = CallGetEtfAndCheckCounts<EtfOperations>(uri);
+
+            return etfList;
+        }
+        #endregion IEtfService Implementation
+
+        #region Private Methods
+        private List<T> CallGetEtfAndCheckCounts<T>(string uri) where T : EtfBase, new()
+        {
+            List<T> etfList = new List<T>();
+            do
+            {
+                etfList = GetETFList<T>(uri);
+            } while (etfList.Count < 1101);
+            return etfList;
+        }
+
+        private List<T> GetETFList<T>(string uri) where T : EtfBase, new()
         {
             List<T> etfList = new List<T>();
             
@@ -124,8 +114,6 @@ namespace Services.Services
                         string[] getRows = WebWorks.GetColumns(row);
                         if (getRows.Count() > 6)
                         {
-                            //var etfReturn = Activator.CreateInstance(typeof(T), new object[] { new string[], null }) as T;
-
                             T etfReturn = new T();
                             etfReturn.LoadRow<T>(getRows);
                             etfList.Add(etfReturn);
@@ -143,13 +131,13 @@ namespace Services.Services
             }
             finally
             {
-                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs's completed...{0}", Environment.NewLine);
+                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs's completed. {1} items returned. {0}", Environment.NewLine, etfList.Count);
             }
 
             return etfList;
         }
 
-        public string GetETFs(string uri)
+        private string GetETFs(string uri)
         {
             string webData = string.Empty;
 
@@ -169,5 +157,6 @@ namespace Services.Services
 
             return webData;
         }
+        #endregion Private Methods
     }
 }
