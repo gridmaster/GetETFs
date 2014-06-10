@@ -1,4 +1,10 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+// <copyright file="BaseLogger.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 
 namespace Logger
 {

@@ -1,5 +1,11 @@
-﻿using Logger;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ProductionModule.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using Core.Interface;
+using Logger;
 using Ninject.Modules;
 //using Services.Interface;
 //using Services.Service;

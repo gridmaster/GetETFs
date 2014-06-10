@@ -1,4 +1,9 @@
-﻿
+﻿// -----------------------------------------------------------------------
+// <copyright file="EtfUris.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
 namespace Core.Models
 {
     public class EtfUris

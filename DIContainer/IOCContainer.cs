@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IOCContainer.cs" company="FF">
+// <copyright file="IOCContainer.cs" company="Magic FireFly">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------

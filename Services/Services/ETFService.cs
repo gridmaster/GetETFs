@@ -1,10 +1,17 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+// <copyright file="EtfService.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Business;
 using Core.Interface;
 using Core.Models;
 using DIContainer;
+using Services.BulkLoad;
 using Services.Interfaces;
 
 namespace Services.Services
@@ -20,9 +27,9 @@ namespace Services.Services
         #endregion Constructors
 
         #region IEtfService Implementation
-        public List<EtfReturn> GetReturnMkt()
+        public List<EtfReturn> GetReturn()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnMkt's runnin...{0}", Environment.NewLine);
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturn's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfReturn>(EtfUris.uriReturn);
         }
@@ -61,6 +68,156 @@ namespace Services.Services
 
             return GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
         }
+
+        public bool SaveReturn()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveReturnMkt's runnin...{0}", Environment.NewLine);
+
+            List<EtfReturn> etfReturn = GetEtfAndCheckCounts<EtfReturn>(EtfUris.uriReturn);
+            
+            BulkLoadEtfReturns bls = new BulkLoadEtfReturns(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithEtfReturns(etfReturn, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithEtfReturns", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfReturn>(dt);
+            }
+
+            return success;
+        }
+
+        public bool SaveReturnNav()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveReturnNav's runnin...{0}", Environment.NewLine);
+
+            List<EtfReturnNav> etfReturnNav = GetEtfAndCheckCounts<EtfReturnNav>(EtfUris.uriReturnNav);
+
+            BulkLoadEtfReturnNav bls = new BulkLoadEtfReturnNav(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithReturnNav(etfReturnNav, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithReturnNav", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfReturnNav>(dt);
+            }
+
+            return success;
+        }
+
+        public bool SaveTradingVolume()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveTradingVolume's runnin...{0}", Environment.NewLine);
+
+            List<EtfTradingVolume> etfTradingVolume = GetEtfAndCheckCounts<EtfTradingVolume>(EtfUris.uriTradingVolume);
+
+            BulkLoadTradingVolume bls = new BulkLoadTradingVolume(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithTradingVolume(etfTradingVolume, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithTradingVolume", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfTradingVolume>(dt);
+            }
+
+            return success;
+        }
+
+        public bool SaveHoldings()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
+
+            List<EtfHoldings> etfHoldings = GetEtfAndCheckCounts<EtfHoldings>(EtfUris.uriHoldings);
+
+            BulkLoadEtfHoldings bls = new BulkLoadEtfHoldings(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithHoldings(etfHoldings, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithHoldings", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfHoldings>(dt);
+            }
+
+            return success;
+        }
+
+        public bool SaveRisk()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
+
+            List<EtfRisk> etfRisk = GetEtfAndCheckCounts<EtfRisk>(EtfUris.uriRisk);
+
+            BulkLoadEtfRisk bls = new BulkLoadEtfRisk(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithRisk(etfRisk, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithRisk", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfRisk>(dt);
+            }
+
+            return success;
+        }
+
+        public bool SaveOperations()
+        {
+            bool success = false;
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveOperations runnin...{0}", Environment.NewLine);
+
+            List<EtfOperations> etfOperations = GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
+
+            BulkLoadEtfOperations bls = new BulkLoadEtfOperations(logger);
+
+            var dt = bls.ConfigureDataTable();
+
+            dt = bls.LoadDataTableWithOperations(etfOperations, dt);
+
+            if (dt == null)
+            {
+                logger.DebugFormat("{0}No data returned on LoadDataTableWithOperations", Environment.NewLine);
+            }
+            else
+            {
+                success = bls.BulkCopy<EtfOperations>(dt);
+            }
+
+            return success;
+        }
         #endregion IEtfService Implementation
 
         #region Private Methods
@@ -98,11 +255,11 @@ namespace Services.Services
 
                     foreach (var row in rows)
                     {
-                        string[] getRows = WebWorks.GetColumns(row);
-                        if (getRows.Count() > 6)
+                        string[] getColumns = WebWorks.GetColumns(row);
+                        if (getColumns.Count() > 6)
                         {
                             T etfReturn = new T();
-                            etfReturn.LoadRow<T>(getRows);
+                            etfReturn.LoadRow<T>(getColumns);
                             etfList.Add(etfReturn);
                         }
                     }

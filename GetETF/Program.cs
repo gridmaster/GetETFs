@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Business;
 using Core.Interface;
 using DIContainer;
 using GetETF.DIModule;
@@ -28,8 +27,7 @@ namespace GetETF
         private static void Main(string[] args)
         {
             Console.WriteLine("{0}: Program startup...", DateTime.Now);
-            string uri =
-                "http://finance.yahoo.com/etf/lists/?mod_id=mediaquotesetf&tab=tab{0}&scol=imkt&stype=desc&rcnt={1}&page={2}";
+
             try
             {
                 InitializeDiContainer();
@@ -40,12 +38,12 @@ namespace GetETF
 
                 string result = string.Empty;
 
-                var returnMkt = IOCContainer.Instance.Get<IEtfService>().GetReturnMkt();
-                var returnNav = IOCContainer.Instance.Get<IEtfService>().GetReturnNav();
-                var returnTv = IOCContainer.Instance.Get<IEtfService>().GetTradingVolume();
-                var returnHoldings = IOCContainer.Instance.Get<IEtfService>().GetHoldings();
-                var returnRisk = IOCContainer.Instance.Get<IEtfService>().GetRisk();
-                var returnOperations = IOCContainer.Instance.Get<IEtfService>().GetOperations();
+                //var returnMkt = IOCContainer.Instance.Get<IEtfService>().SaveReturn();
+                //var returnNav = IOCContainer.Instance.Get<IEtfService>().SaveReturnNav();
+                //var returnTv = IOCContainer.Instance.Get<IEtfService>().SaveTradingVolume();
+                var returnHoldings = IOCContainer.Instance.Get<IEtfService>().SaveHoldings();
+                var returnRisk = IOCContainer.Instance.Get<IEtfService>().SaveRisk();
+                //var returnOperations = IOCContainer.Instance.Get<IEtfService>().SaveOperations();
 
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Data collecting complete...{0}", Environment.NewLine);
 
@@ -64,12 +62,6 @@ namespace GetETF
 
                 Console.ReadKey();
             }
-        }
-
-        public static string GetPage(string url)
-        {
-            string result = GetWebPage.GetPage(url);
-            return result;
         }
     }
 }

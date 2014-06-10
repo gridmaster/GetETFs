@@ -1,4 +1,10 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+// <copyright file="WebWorks.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -11,7 +17,6 @@ namespace Core.Business
         public static string GetResponse(string sUri)
         {
             var httpWRequest = (HttpWebRequest) WebRequest.Create(sUri);
-            StreamReader reader = null;
 
             try
             {
@@ -22,15 +27,19 @@ namespace Core.Business
                 var responseStream = httpWebResponse.GetResponseStream();
 
                 if (responseStream != null)
-                    reader = new StreamReader(responseStream, Encoding.UTF8);
+                {
+                    using (StreamReader reader = new StreamReader(responseStream, Encoding.UTF8))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 return "WebWorks.GetResponse ERROR: " + ex.Message;
-                //throw ex;
             }
 
-            return reader == null ? "" : reader.ReadToEnd();
+            return "";
         }
 
         public static string[] GetColumns(string row)
@@ -112,7 +121,7 @@ namespace Core.Business
             return strTable;
         }
 
-        public static string[] ExtractRows(string strTable)
+        public static string[] ExtractRowsFromTable(string strTable)
         {
             strTable = strTable.Replace("<tr>", "~");
             return strTable.Split('~');
@@ -121,7 +130,7 @@ namespace Core.Business
         public static string[] ExtractRowsFromWebPage(string page)
         {
             string xstrTable = GetTable(page);
-            return ExtractRows(xstrTable);
+            return ExtractRowsFromTable(xstrTable);
         }
     }
 }

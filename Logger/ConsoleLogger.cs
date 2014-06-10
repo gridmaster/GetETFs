@@ -1,4 +1,10 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ConsoleLogger.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 using System.Globalization;
 using Core.Interface;
 
@@ -77,17 +83,18 @@ namespace Logger
             }
             Log(LogTypeEnum.DEBUG, (string)message, null);
         }
+
         public void Debug(object message, Exception exception)
         {
             DebugFormat((string)message, exception);
         }
+
         public void DebugFormat(string format, params object[] args)
         {
             if (!IsDebugEnabled)
             {
                 return;
             }
-
             string message = new SystemStringFormat(CultureInfo.InvariantCulture, format, args).ToString();
             Log(LogTypeEnum.DEBUG, message, null);
         }
@@ -100,20 +107,22 @@ namespace Logger
             }
             Log(LogTypeEnum.INFO, (string)message, null);
         }
+
         public void Info(object message, Exception exception)
         {
             InfoFormat((string)message, exception);
         }
+
         public void InfoFormat(string format, params object[] args)
         {
             if (!IsInfoEnabled)
             {
                 return;
             }
-
             string message = new SystemStringFormat(CultureInfo.InvariantCulture, format, args).ToString();
             Log(LogTypeEnum.INFO, message, null);
         }
+
         public void Warn(object message)
         {
             if (!IsWarnEnabled)
@@ -122,10 +131,12 @@ namespace Logger
             }
             Log(LogTypeEnum.WARN, (string)message, null);
         }
+
         public void Warn(object message, Exception exception)
         {
             WarnFormat((string)message, exception);
         }
+
         public void WarnFormat(string format, params object[] args)
         {
             if (!IsWarnEnabled)
@@ -144,20 +155,22 @@ namespace Logger
             }
             Log(LogTypeEnum.ERROR, (string)message, null);
         }
+
         public void Error(object message, Exception exception)
         {
             ErrorFormat((string)message, exception);
         }
+
         public void ErrorFormat(string format, params object[] args)
         {
             if (!IsErrorEnabled)
             {
                 return;
             }
-
             string message = new SystemStringFormat(CultureInfo.InvariantCulture, format, args).ToString();
             Log(LogTypeEnum.ERROR, message, null);
         }
+
         public void Fatal(object message)
         {
             if (!IsFatalEnabled)
@@ -166,17 +179,18 @@ namespace Logger
             }
             Log(LogTypeEnum.FATAL, (string)message, null);
         }
+
         public void Fatal(object message, Exception exception)
         {
             FatalFormat((string)message, exception);
         }
+
         public void FatalFormat(string format, params object[] args)
         {
             if (!IsFatalEnabled)
             {
                 return;
             }
-
             string message = new SystemStringFormat(CultureInfo.InvariantCulture, format, args).ToString();
             Log(LogTypeEnum.FATAL, message, null);
         }

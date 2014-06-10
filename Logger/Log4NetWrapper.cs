@@ -1,6 +1,12 @@
-﻿using System;
-using log4net;
+﻿// -----------------------------------------------------------------------
+// <copyright file="Log4NetWrapper.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 using Core.Interface;
+using log4net;
 
 namespace Logger
 {

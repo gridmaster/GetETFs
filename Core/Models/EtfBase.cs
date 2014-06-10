@@ -1,8 +1,17 @@
-﻿
+﻿// -----------------------------------------------------------------------
+// <copyright file="EtfBase.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
+
 namespace Core.Models
 {
     public abstract class EtfBase
     {
+        public DateTime Date { get; set; }
+
         // ETF NAME
         public string EtfName { get; set; }
 

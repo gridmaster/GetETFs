@@ -1,4 +1,10 @@
-﻿using System;
+﻿// -----------------------------------------------------------------------
+// <copyright file="EtfTradingVolume.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System;
 
 namespace Core.Models
 {
@@ -24,6 +30,7 @@ namespace Core.Models
             if (rows.Length < 10)
                 throw new ArgumentException("requires 10 rows to be passed.");
 
+            Date = DateTime.Now;
             EtfName = rows[1];
             Ticker = rows[2];
             Category = rows[3];

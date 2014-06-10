@@ -1,4 +1,9 @@
-﻿
+﻿// -----------------------------------------------------------------------
+// <copyright file="EtfReturn.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 
 namespace Core.Models
@@ -28,6 +33,7 @@ namespace Core.Models
             if(rows.Length < 11)
                 throw new ArgumentException("requires 11 rows to be passed.");
 
+            Date = DateTime.Now;
             EtfName = rows[1];
             Ticker = rows[2];
             Category = rows[3];

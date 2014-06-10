@@ -34,6 +34,7 @@
       <HintPath>..\GetETF\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BulkLoad\BaseBulkLoad.cs" />
+    <Compile Include="BulkLoad\BulkLoadEtfHoldings.cs" />
+    <Compile Include="BulkLoad\BulkLoadEtfOperations.cs" />
+    <Compile Include="BulkLoad\BulkLoadEtfReturnNav.cs" />
+    <Compile Include="BulkLoad\BulkLoadEtfReturns.cs" />
+    <Compile Include="BulkLoad\BulkLoadEtfRisk.cs" />
+    <Compile Include="BulkLoad\BulkLoadTradingVolume.cs" />
     <Compile Include="DIModule\DebugModule.cs" />
     <Compile Include="DIModule\DesignTimeModule.cs" />
     <Compile Include="DIModule\ProductionModule.cs" />
