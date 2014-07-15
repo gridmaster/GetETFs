@@ -27,6 +27,13 @@ namespace Services.Services
         #endregion Constructors
 
         #region IEtfService Implementation
+        public List<T> Get<T>(string uri) where T : EtfBase, new()
+        {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}{1}'s runnin...{0}", Environment.NewLine, typeof(T).ToString());
+
+            return GetEtfAndCheckCounts<T>(uri);
+        }
+
         public List<EtfReturn> GetReturn()
         {
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturn's runnin...{0}", Environment.NewLine);
@@ -75,12 +82,10 @@ namespace Services.Services
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveReturnMkt's runnin...{0}", Environment.NewLine);
 
             List<EtfReturn> etfReturn = GetEtfAndCheckCounts<EtfReturn>(EtfUris.uriReturn);
-            
-            BulkLoadEtfReturns bls = new BulkLoadEtfReturns(logger);
 
-            var dt = bls.ConfigureDataTable();
+            var dt = IOCContainer.Instance.Get<BulkLoadEtfReturns>().ConfigureDataTable();
 
-            dt = bls.LoadDataTableWithEtfReturns(etfReturn, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadEtfReturns>().LoadDataTableWithEtfReturns(etfReturn, dt);
 
             if (dt == null)
             {
@@ -88,7 +93,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfReturn>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfReturns>().BulkCopy<EtfReturn>(dt);
             }
 
             return success;
@@ -101,11 +106,9 @@ namespace Services.Services
 
             List<EtfReturnNav> etfReturnNav = GetEtfAndCheckCounts<EtfReturnNav>(EtfUris.uriReturnNav);
 
-            BulkLoadEtfReturnNav bls = new BulkLoadEtfReturnNav(logger);
+            var dt = IOCContainer.Instance.Get<BulkLoadEtfReturnNav>().ConfigureDataTable();
 
-            var dt = bls.ConfigureDataTable();
-
-            dt = bls.LoadDataTableWithReturnNav(etfReturnNav, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadEtfReturnNav>().LoadDataTableWithReturnNav(etfReturnNav, dt);
 
             if (dt == null)
             {
@@ -113,7 +116,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfReturnNav>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfReturnNav>().BulkCopy<EtfReturnNav>(dt);
             }
 
             return success;
@@ -125,12 +128,10 @@ namespace Services.Services
             IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveTradingVolume's runnin...{0}", Environment.NewLine);
 
             List<EtfTradingVolume> etfTradingVolume = GetEtfAndCheckCounts<EtfTradingVolume>(EtfUris.uriTradingVolume);
+            
+            var dt = IOCContainer.Instance.Get<BulkLoadTradingVolume>().ConfigureDataTable();
 
-            BulkLoadTradingVolume bls = new BulkLoadTradingVolume(logger);
-
-            var dt = bls.ConfigureDataTable();
-
-            dt = bls.LoadDataTableWithTradingVolume(etfTradingVolume, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadTradingVolume>().LoadDataTableWithTradingVolume(etfTradingVolume, dt);
 
             if (dt == null)
             {
@@ -138,7 +139,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfTradingVolume>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadTradingVolume>().BulkCopy<EtfTradingVolume>(dt);
             }
 
             return success;
@@ -151,11 +152,9 @@ namespace Services.Services
 
             List<EtfHoldings> etfHoldings = GetEtfAndCheckCounts<EtfHoldings>(EtfUris.uriHoldings);
 
-            BulkLoadEtfHoldings bls = new BulkLoadEtfHoldings(logger);
+            var dt = IOCContainer.Instance.Get<BulkLoadEtfHoldings>().ConfigureDataTable();
 
-            var dt = bls.ConfigureDataTable();
-
-            dt = bls.LoadDataTableWithHoldings(etfHoldings, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadEtfHoldings>().LoadDataTableWithHoldings(etfHoldings, dt);
 
             if (dt == null)
             {
@@ -163,7 +162,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfHoldings>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfHoldings>().BulkCopy<EtfHoldings>(dt);
             }
 
             return success;
@@ -176,11 +175,9 @@ namespace Services.Services
 
             List<EtfRisk> etfRisk = GetEtfAndCheckCounts<EtfRisk>(EtfUris.uriRisk);
 
-            BulkLoadEtfRisk bls = new BulkLoadEtfRisk(logger);
+            var dt = IOCContainer.Instance.Get<BulkLoadEtfRisk>().ConfigureDataTable();
 
-            var dt = bls.ConfigureDataTable();
-
-            dt = bls.LoadDataTableWithRisk(etfRisk, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadEtfRisk>().LoadDataTableWithRisk(etfRisk, dt);
 
             if (dt == null)
             {
@@ -188,7 +185,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfRisk>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfRisk>().BulkCopy<EtfRisk>(dt);
             }
 
             return success;
@@ -201,11 +198,9 @@ namespace Services.Services
 
             List<EtfOperations> etfOperations = GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
 
-            BulkLoadEtfOperations bls = new BulkLoadEtfOperations(logger);
+            var dt = IOCContainer.Instance.Get<BulkLoadEtfOperations>().ConfigureDataTable();
 
-            var dt = bls.ConfigureDataTable();
-
-            dt = bls.LoadDataTableWithOperations(etfOperations, dt);
+            dt = IOCContainer.Instance.Get<BulkLoadEtfOperations>().LoadDataTableWithOperations(etfOperations, dt);
 
             if (dt == null)
             {
@@ -213,7 +208,7 @@ namespace Services.Services
             }
             else
             {
-                success = bls.BulkCopy<EtfOperations>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfOperations>().BulkCopy<EtfOperations>(dt);
             }
 
             return success;
@@ -230,7 +225,7 @@ namespace Services.Services
             do
             {
                 etfList = GetEtfList<T>(uri);
-            } while (etfList.Count < 1101);
+            } while (etfList.Count < 1201);
 
             return etfList;
         }

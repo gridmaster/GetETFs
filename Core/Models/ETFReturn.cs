@@ -10,6 +10,10 @@ namespace Core.Models
 {
     public class EtfReturn : EtfBase
     {
+        public EtfReturn()
+        {
+        }
+
         //INTRADAY RETURN	
         public string IntradayReturn { get; set; }
         

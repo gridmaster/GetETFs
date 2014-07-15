@@ -11,6 +11,7 @@ namespace Services.Interfaces
 {
     public interface IEtfService
     {
+        List<T> Get<T>(string uri) where T : EtfBase, new();
         List<EtfReturn> GetReturn();
         List<EtfReturnNav> GetReturnNav();
         List<EtfTradingVolume> GetTradingVolume();

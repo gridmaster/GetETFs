@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Interface;
+using Core.Models;
 using DIContainer;
 using GetETF.DIModule;
 using Ninject;
@@ -37,13 +38,15 @@ namespace GetETF
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Main's runnin'...{0}", Environment.NewLine);
 
                 string result = string.Empty;
+                // List<T> Get<T>(string uri) where T : EtfBase, new();
+                var ilist = IOCContainer.Instance.Get<IEtfService>().Get<EtfReturn>(EtfUris.uriReturn);
 
-                //var returnMkt = IOCContainer.Instance.Get<IEtfService>().SaveReturn();
-                //var returnNav = IOCContainer.Instance.Get<IEtfService>().SaveReturnNav();
-                //var returnTv = IOCContainer.Instance.Get<IEtfService>().SaveTradingVolume();
+                var returnMkt = IOCContainer.Instance.Get<IEtfService>().SaveReturn();
+                var returnNav = IOCContainer.Instance.Get<IEtfService>().SaveReturnNav();
+                var returnTv = IOCContainer.Instance.Get<IEtfService>().SaveTradingVolume();
                 var returnHoldings = IOCContainer.Instance.Get<IEtfService>().SaveHoldings();
                 var returnRisk = IOCContainer.Instance.Get<IEtfService>().SaveRisk();
-                //var returnOperations = IOCContainer.Instance.Get<IEtfService>().SaveOperations();
+                var returnOperations = IOCContainer.Instance.Get<IEtfService>().SaveOperations();
 
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Data collecting complete...{0}", Environment.NewLine);
 
