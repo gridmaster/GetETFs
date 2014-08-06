@@ -38,8 +38,8 @@ namespace GetETF
                 IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}Main's runnin'...{0}", Environment.NewLine);
 
                 string result = string.Empty;
-                // List<T> Get<T>(string uri) where T : EtfBase, new();
-                var ilist = IOCContainer.Instance.Get<IEtfService>().Get<EtfReturn>(EtfUris.uriReturn);
+
+//              var ilist = IOCContainer.Instance.Get<IEtfService>().Get<EtfReturn>(EtfUris.uriReturn);
 
                 var returnMkt = IOCContainer.Instance.Get<IEtfService>().SaveReturn();
                 var returnNav = IOCContainer.Instance.Get<IEtfService>().SaveReturnNav();
@@ -63,7 +63,7 @@ namespace GetETF
                                 "{0}********************************************************************************{0}",
                                 Environment.NewLine);
 
-                Console.ReadKey();
+               // Console.ReadKey();
             }
         }
     }

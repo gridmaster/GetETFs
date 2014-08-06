@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Core.Business;
 using Core.Interface;
 using Core.Models;
@@ -222,12 +223,31 @@ namespace Services.Services
 
             List<T> etfList = new List<T>();
 
+            int count = GetETFCount(uri);
+
             do
             {
                 etfList = GetEtfList<T>(uri);
-            } while (etfList.Count < 1201);
+            } while (etfList.Count < count);
 
             return etfList;
+        }
+
+        private int GetETFCount(string uri)
+        {
+            Regex regex = new Regex("((\\d+ Items))");
+            string result = WebWorks.GetResponse(uri);
+
+            var match = regex.Match(result);
+
+            result = match.Groups[1].Value;
+
+            result = result.Replace("Items", "").Trim();
+
+            int n;
+            bool isNumeric = int.TryParse(result, out n);
+            return isNumeric ? n : 0;
+
         }
 
         private List<T> GetEtfList<T>(string uri) where T : EtfBase, new()
