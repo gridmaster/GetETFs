@@ -1,12 +1,15 @@
-﻿
+﻿// -----------------------------------------------------------------------
+// <copyright file="BaseService.cs" company="Magic FireFly">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
 using System;
 
 namespace Core.Models.Options
 {
     public class Options : BaseOptions
     {
-        public string Symbol { get; set; }
-        public DateTime Date { get; set; }
         public decimal Strike { get; set; }
         public string ContractName { get; set; }
         public decimal Last { get; set; }
@@ -17,6 +20,5 @@ namespace Core.Models.Options
         public decimal Volume { get; set; }
         public decimal OpenInterest { get; set; }
         public string ImpliedVolatility { get; set; }
-        public DateTime DateCreated { get; set; }
     }
 }
