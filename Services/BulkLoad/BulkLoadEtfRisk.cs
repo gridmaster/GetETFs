@@ -23,7 +23,7 @@ namespace Services.BulkLoad
         {
         }
 
-        public DataTable LoadDataTableWithRisk(IEnumerable<EtfRisk> dStats, DataTable dt)
+        public DataTable LoadDataTableWithRisk(IEnumerable<EtfRisks> dStats, DataTable dt)
         {
             foreach (var value in dStats)
             {

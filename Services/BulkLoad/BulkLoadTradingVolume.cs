@@ -24,7 +24,7 @@ namespace Services.BulkLoad
         {
         }
 
-        public DataTable LoadDataTableWithTradingVolume(IEnumerable<EtfTradingVolume> dStats, DataTable dt)
+        public DataTable LoadDataTableWithTradingVolume(IEnumerable<EtfTradingVolumes> dStats, DataTable dt)
         {
             foreach (var value in dStats)
             {

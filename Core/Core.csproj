@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\GetETF\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
@@ -44,14 +47,20 @@
     <Compile Include="Models\EtfBase.cs" />
     <Compile Include="Models\EtfHoldings.cs" />
     <Compile Include="Models\EtfOperations.cs" />
-    <Compile Include="Models\EtfReturn.cs" />
+    <Compile Include="Models\EtfReturns.cs" />
     <Compile Include="Interface\ILogger.cs" />
-    <Compile Include="Models\EtfReturnNav.cs" />
-    <Compile Include="Models\EtfRisk.cs" />
-    <Compile Include="Models\EtfTradingVolume.cs" />
+    <Compile Include="Models\EtfReturnNavs.cs" />
+    <Compile Include="Models\EtfRisks.cs" />
+    <Compile Include="Models\EtfTradingVolumes.cs" />
     <Compile Include="Models\EtfUris.cs" />
+    <Compile Include="Models\Options\BaseOptions.cs" />
+    <Compile Include="Models\Options\Options.cs" />
+    <Compile Include="Models\Options\OptionUris.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Business\WebWorks.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -24,7 +24,7 @@ namespace Services.BulkLoad
         {
         }
 
-        public DataTable LoadDataTableWithEtfReturns(IEnumerable<EtfReturn> dStats, DataTable dt)
+        public DataTable LoadDataTableWithEtfReturns(IEnumerable<EtfReturns> dStats, DataTable dt)
         {
             foreach (var value in dStats)
             {

@@ -6,7 +6,9 @@
 
 using System;
 using System.Runtime.CompilerServices;
+using Core.Business;
 using Core.Interface;
+using DIContainer;
 
 namespace Services.Services
 {
@@ -63,6 +65,29 @@ namespace Services.Services
 
             logger.Error(errorMessage);
             throw new Exception(errorMessage);
+        }
+
+        public string GetWebPage(string uri)
+        {
+            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs is fetching uri: {0}{1}{0}", Environment.NewLine, uri);
+
+            string webData = string.Empty;
+
+            try
+            {
+                webData = WebWorks.GetResponse(uri);
+            }
+            catch (Exception ex)
+            {
+                logger.ErrorFormat("Unable to get {1}{0}Error: {2}{0}{3}"
+                                        , Environment.NewLine
+                                        , uri
+                                        , ex.Message
+                                        , GetThisMethodName());
+                webData = ex.Message;
+            }
+
+            return webData;
         }
         #endregion
     }

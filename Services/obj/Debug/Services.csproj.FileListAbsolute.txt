@@ -18,3 +18,5 @@ C:\Projects\GetETFs\Services\bin\Debug\Ninject.dll
 C:\Projects\GetETFs\Services\bin\Debug\DIContainer.pdb
 C:\Projects\GetETFs\Services\bin\Debug\Logger.pdb
 C:\Projects\GetETFs\Services\bin\Debug\Ninject.xml
+C:\Projects\GetETFs\Services\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\GetETFs\Services\bin\Debug\Newtonsoft.Json.xml

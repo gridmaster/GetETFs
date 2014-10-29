@@ -22,3 +22,5 @@ C:\Projects\GetETFs\Logger\bin\Debug\Core.pdb
 C:\Projects\GetETFs\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
 C:\Projects\GetETFs\Logger\obj\Debug\Logger.dll
 C:\Projects\GetETFs\Logger\obj\Debug\Logger.pdb
+C:\Projects\GetETFs\Logger\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\GetETFs\Logger\bin\Debug\Newtonsoft.Json.xml

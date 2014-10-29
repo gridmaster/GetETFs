@@ -21,6 +21,8 @@ namespace GetETF.DIModule
 
             Bind<IEtfService>().To<EtfService>().InSingletonScope();
             //Bind<IMyOtherService>().To<MyOtherService>().InSingletonScope();
+
+            Bind<IOptionService>().To<OptionService>().InSingletonScope();
         }
     }
 }

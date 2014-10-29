@@ -12,11 +12,11 @@ namespace Services.Interfaces
     public interface IEtfService
     {
         List<T> Get<T>(string uri) where T : EtfBase, new();
-        List<EtfReturn> GetReturn();
-        List<EtfReturnNav> GetReturnNav();
-        List<EtfTradingVolume> GetTradingVolume();
+        List<EtfReturns> GetReturn();
+        List<EtfReturnNavs> GetReturnNav();
+        List<EtfTradingVolumes> GetTradingVolume();
         List<EtfHoldings> GetHoldings();
-        List<EtfRisk> GetRisk();
+        List<EtfRisks> GetRisk();
         List<EtfOperations> GetOperations();
         bool SaveReturn();
         bool SaveReturnNav();
