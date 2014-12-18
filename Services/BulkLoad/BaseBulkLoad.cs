@@ -42,9 +42,9 @@ namespace Services.BulkLoad
             return dt;
         }
 
-        public bool BulkCopy<T>(DataTable dt)
+        public bool BulkCopy<T>(DataTable dt, String context)
         {
-            string connString = ConfigurationManager.ConnectionStrings["ETFContext"].ConnectionString;
+            string connString = ConfigurationManager.ConnectionStrings[context].ConnectionString;
 
             string tableName = typeof(T).Name;
             bool success = false;
@@ -63,7 +63,7 @@ namespace Services.BulkLoad
                 }
                 catch (Exception ex)
                 {
-                    logger.Error(string.Format("BaseBulkLoad - BulkCopy<" + tableName + ">", "Bulk load error: " + ex.Message));
+                    logger.Error(string.Format("BaseBulkLoad - BulkCopy<{0}> Bulk load error: {1}", tableName, ex.Message));
                 }
 
                 bulkCopy.Close();

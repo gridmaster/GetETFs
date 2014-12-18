@@ -17,6 +17,6 @@ C:\Projects\GetETFs\Core\bin\Debug\Core.dll
 C:\Projects\GetETFs\Core\bin\Debug\Core.pdb
 C:\Projects\GetETFs\Core\obj\Debug\Core.dll
 C:\Projects\GetETFs\Core\obj\Debug\Core.pdb
-C:\Projects\GetETFs\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache
 C:\Projects\GetETFs\Core\bin\Debug\Newtonsoft.Json.dll
 C:\Projects\GetETFs\Core\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\GetETFs\Core\obj\Debug\Core.csprojResolveAssemblyReference.cache

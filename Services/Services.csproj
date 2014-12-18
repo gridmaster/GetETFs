@@ -53,6 +53,7 @@
     <Compile Include="BulkLoad\BulkLoadEtfReturnNav.cs" />
     <Compile Include="BulkLoad\BulkLoadEtfReturns.cs" />
     <Compile Include="BulkLoad\BulkLoadEtfRisk.cs" />
+    <Compile Include="BulkLoad\BulkLoadOptions.cs" />
     <Compile Include="BulkLoad\BulkLoadTradingVolume.cs" />
     <Compile Include="DIModule\DebugModule.cs" />
     <Compile Include="DIModule\DesignTimeModule.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\EtfService.cs" />
     <Compile Include="Services\OptionService.cs" />
+    <Compile Include="SQL\SymbolContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

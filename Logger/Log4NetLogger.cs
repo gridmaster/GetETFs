@@ -15,6 +15,8 @@ namespace Logger
     {
         #region Properties and ILog Properties
 
+       // private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private static log4net.ILog _log;
 
         public bool IsDebugEnabled { get { return (LogLevel <= LogLevelEnum.Debug); } }
@@ -30,7 +32,7 @@ namespace Logger
         public Log4NetLogger(LogLevelEnum loglevel)
         {
             LogLevel = loglevel;
-            _log = LogManager.GetLogger("Log4NetLogger");
+            _log = LogManager.GetLogger("AdoNetAppender");
             log4net.Config.XmlConfigurator.Configure();
         }
 

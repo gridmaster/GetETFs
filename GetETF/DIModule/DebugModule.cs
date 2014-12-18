@@ -20,7 +20,6 @@ namespace GetETF.DIModule
                 .WithConstructorArgument("loglevel", LogLevelEnum.Debug);
 
             Bind<IEtfService>().To<EtfService>().InSingletonScope();
-            //Bind<IMyOtherService>().To<MyOtherService>().InSingletonScope();
 
             Bind<IOptionService>().To<OptionService>().InSingletonScope();
         }

@@ -30,49 +30,49 @@ namespace Services.Services
         #region IEtfService Implementation
         public List<T> Get<T>(string uri) where T : EtfBase, new()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}{1}'s runnin...{0}", Environment.NewLine, typeof(T).ToString());
+            logger.InfoFormat("{0}{1}'s runnin...{0}", Environment.NewLine, typeof(T).ToString());
 
             return GetEtfAndCheckCounts<T>(uri);
         }
 
         public List<EtfReturns> GetReturn()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturn's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetReturn's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfReturns>(EtfUris.uriReturn);
         }
 
         public List<EtfReturnNavs> GetReturnNav()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetReturnNav's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetReturnNav's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfReturnNavs>(EtfUris.uriReturnNav);
         }
 
         public List<EtfTradingVolumes> GetTradingVolume()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetTradingVolume's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetTradingVolume's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfTradingVolumes>(EtfUris.uriTradingVolume);
         }
 
         public List<EtfHoldings> GetHoldings()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetHoldings's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetHoldings's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfHoldings>(EtfUris.uriHoldings);
         }
 
         public List<EtfRisks> GetRisk()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetRisk's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetRisk's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfRisks>(EtfUris.uriRisk);
         }
 
         public List<EtfOperations> GetOperations()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetOperations's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetOperations's runnin...{0}", Environment.NewLine);
 
             return GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
         }
@@ -80,7 +80,7 @@ namespace Services.Services
         public bool SaveReturn()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveReturnMkt's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveReturnMkt's runnin...{0}", Environment.NewLine);
 
             List<EtfReturns> etfReturn = GetEtfAndCheckCounts<EtfReturns>(EtfUris.uriReturn);
 
@@ -94,7 +94,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadEtfReturns>().BulkCopy<EtfReturns>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfReturns>().BulkCopy<EtfReturns>(dt, "ETFContext");
             }
 
             return success;
@@ -103,7 +103,7 @@ namespace Services.Services
         public bool SaveReturnNav()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveReturnNav's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveReturnNav's runnin...{0}", Environment.NewLine);
 
             List<EtfReturnNavs> etfReturnNav = GetEtfAndCheckCounts<EtfReturnNavs>(EtfUris.uriReturnNav);
 
@@ -117,7 +117,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadEtfReturnNav>().BulkCopy<EtfReturnNavs>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfReturnNav>().BulkCopy<EtfReturnNavs>(dt, "ETFContext");
             }
 
             return success;
@@ -126,7 +126,7 @@ namespace Services.Services
         public bool SaveTradingVolume()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveTradingVolume's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveTradingVolume's runnin...{0}", Environment.NewLine);
 
             List<EtfTradingVolumes> etfTradingVolume = GetEtfAndCheckCounts<EtfTradingVolumes>(EtfUris.uriTradingVolume);
             
@@ -140,7 +140,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadTradingVolume>().BulkCopy<EtfTradingVolumes>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadTradingVolume>().BulkCopy<EtfTradingVolumes>(dt, "ETFContext");
             }
 
             return success;
@@ -149,7 +149,7 @@ namespace Services.Services
         public bool SaveHoldings()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
 
             List<EtfHoldings> etfHoldings = GetEtfAndCheckCounts<EtfHoldings>(EtfUris.uriHoldings);
 
@@ -163,7 +163,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadEtfHoldings>().BulkCopy<EtfHoldings>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfHoldings>().BulkCopy<EtfHoldings>(dt, "ETFContext");
             }
 
             return success;
@@ -172,7 +172,7 @@ namespace Services.Services
         public bool SaveRisk()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveHoldings's runnin...{0}", Environment.NewLine);
 
             List<EtfRisks> etfRisk = GetEtfAndCheckCounts<EtfRisks>(EtfUris.uriRisk);
 
@@ -186,7 +186,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadEtfRisk>().BulkCopy<EtfRisks>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfRisk>().BulkCopy<EtfRisks>(dt, "ETFContext");
             }
 
             return success;
@@ -195,7 +195,7 @@ namespace Services.Services
         public bool SaveOperations()
         {
             bool success = false;
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}SaveOperations runnin...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}SaveOperations runnin...{0}", Environment.NewLine);
 
             List<EtfOperations> etfOperations = GetEtfAndCheckCounts<EtfOperations>(EtfUris.uriOperations);
 
@@ -209,7 +209,7 @@ namespace Services.Services
             }
             else
             {
-                success = IOCContainer.Instance.Get<BulkLoadEtfOperations>().BulkCopy<EtfOperations>(dt);
+                success = IOCContainer.Instance.Get<BulkLoadEtfOperations>().BulkCopy<EtfOperations>(dt, "ETFContext");
             }
 
             return success;
@@ -219,7 +219,7 @@ namespace Services.Services
         #region Private Methods
         private List<T> GetEtfAndCheckCounts<T>(string uri) where T : EtfBase, new()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfAndCheckCounts is runnin'...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetEtfAndCheckCounts is runnin'...{0}", Environment.NewLine);
 
             List<T> etfList = new List<T>();
 
@@ -252,7 +252,7 @@ namespace Services.Services
 
         private List<T> GetEtfList<T>(string uri) where T : EtfBase, new()
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfList is runnin'...{0}", Environment.NewLine);
+            logger.InfoFormat("{0}GetEtfList is runnin'...{0}", Environment.NewLine);
 
             List<T> etfList = new List<T>();
             
@@ -286,7 +286,7 @@ namespace Services.Services
             }
             finally
             {
-                IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetEtfList has completed. {1} Items returned. {0}", Environment.NewLine, etfList.Count);
+                logger.InfoFormat("{0}GetEtfList has completed. {1} Items returned. {0}", Environment.NewLine, etfList.Count);
             }
 
             return etfList;
@@ -294,7 +294,7 @@ namespace Services.Services
 
         private string GetETFs(string uri)
         {
-            IOCContainer.Instance.Get<ILogger>().InfoFormat("{0}GetETFs is fetching uri: {0}{1}{0}", Environment.NewLine, uri);
+            logger.InfoFormat("{0}GetETFs is fetching uri: {0}{1}{0}", Environment.NewLine, uri);
 
             string webData = string.Empty;
 

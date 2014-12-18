@@ -35,6 +35,6 @@ C:\Projects\GetETFs\DIContainer\bin\Debug\Ninject.dll
 C:\Projects\GetETFs\DIContainer\bin\Debug\Ninject.xml
 C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.dll
 C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.pdb
-C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
 C:\Projects\GetETFs\DIContainer\bin\Debug\Newtonsoft.Json.dll
 C:\Projects\GetETFs\DIContainer\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\GetETFs\DIContainer\obj\Debug\DIContainer.csprojResolveAssemblyReference.cache
